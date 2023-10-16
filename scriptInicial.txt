@@ -1,0 +1,13 @@
+create database agencia;
+use agencia;
+
+create table info_pasaje(
+	id int auto_increment primary key,
+    nombres varchar(100),
+    apellido_paterno varchar(100),
+    apellido_materno varchar(100),
+    dni varchar(8),
+    fecha_nacimiento date,
+    celular varchar(12),
+    correo varchar(100)
+);

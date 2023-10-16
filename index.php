@@ -106,6 +106,7 @@
                                 <td><?php echo $dato->celular; ?></td>
                                 <td><?php echo $dato->correo; ?></td>
                                 <td><a class="text-success" href="editar.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                <td><a class="text-primary" href="agregarPasaje.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-cursor"></i></a></td>
                                 <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="eliminar.php?codigo=<?php echo $dato->id; ?>"><i class="bi bi-trash"></i></a></td>
                             </tr>
 
@@ -120,7 +121,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card" style="max-height: 400px; overflow-y:auto">
                 <div class="card-header">
                     Ingresar datos:
                 </div>
@@ -156,7 +157,9 @@
                     <div class="d-grid">
                         <input type="hidden" name="oculto" value="1">
                         <input type="submit" class="btn btn-primary" value="Registrar">
+                        
                     </div>
+
                 </form>
             </div>
         </div>

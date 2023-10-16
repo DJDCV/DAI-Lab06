@@ -1,0 +1,9 @@
+use agencia;
+CREATE TABLE pasaje (
+	id int NOT NULL AUTO_INCREMENT,
+    informacion varchar(400) DEFAULT NULL,
+    id_info_pasaje int NOT NULL,
+    PRIMARY KEY (id),
+    KEY fk_pasaje_1_idx (id_info_pasaje),
+    CONSTRAINT fk_pasaje_1 FOREIGN KEY (id_info_pasaje) REFERENCES info_pasaje (id)
+)
