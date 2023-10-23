@@ -7,16 +7,28 @@ $codigo = $_GET['codigo'];
 $sentencia = $bd->prepare("select * from info_pasaje where id = ?;");
 $sentencia->execute([$codigo]);
 $info_pasaje = $sentencia->fetch(PDO::FETCH_OBJ);
+// Implementación del mensaje de confirmacion
+session_start();
+$confirmacion = isset($_SESSION['confirmacion']) ? $_SESSION['confirmacion'] : null;
+unset($_SESSION['confirmacion']);
 
 $sentencia_informacion = $bd->prepare("select * from pasaje where id_info_pasaje = ?;");
 $sentencia_informacion->execute([$codigo]);
 $informacion = $sentencia_informacion->fetchAll(PDO::FETCH_OBJ); 
-//print_r($info_pasaje);
 ?>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-4">
+
+            <?php if ($confirmacion) : ?>
+                <!-- Muestra el mensaje de confirmación -->
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?php echo $confirmacion; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+
             <div class="card">
                 <div class="card-header">
                     Ingresar datos del pasaje : <br><?php echo $info_pasaje->nombres.' '.$info_pasaje->apellido_paterno.' '.$info_pasaje->apellido_materno; ?>
