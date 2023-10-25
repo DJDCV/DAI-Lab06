@@ -1,6 +1,6 @@
 <?php 
-$contrasena = "";
-$usuario = "root";
+$contrasena = "tecsup2023";
+$usuario = "tecsup";
 $nombre_bd = "agencia";
 
 try {
